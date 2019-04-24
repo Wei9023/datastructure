@@ -1,7 +1,7 @@
 {
   "name": "datastructure",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Quick Sort Implement quick Sort ![insertion](./merge.png);",
   "main": "index.js",
   "directories": {
     "doc": "docs"
