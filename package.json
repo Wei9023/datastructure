@@ -22,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/Wei9023/datastructure/issues"
   },
-  "homepage": "https://github.com/Wei9023/datastructure#readme"
+  "homepage": "https://github.com/Wei9023/datastructure#readme",
+  "dependencies": {
+    "eslint": "^5.16.0",
+    "lint": "^1.1.2"
+  }
 }
