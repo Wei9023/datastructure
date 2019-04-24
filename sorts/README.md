@@ -1,6 +1,7 @@
 # Sorts
 
 ## Quick sort
+![](./quick-sort.png)
 
 
 ### Chanllenge
