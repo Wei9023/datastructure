@@ -17,7 +17,8 @@ describe('Hashtable', () => {
     let value = 'hello';
     ht.add(key, value);
     let index = ht.hash(key);
-    expect(ht.table[index].includes(value)).toBeTruthy();
+    console.log(ht.buckets[index]);
+    expect(ht.buckets[index][0][1]).toEqual('hello');
   });
   
   it('Retrieving based on a key returns the value stored', () => {
@@ -31,38 +32,34 @@ describe('Hashtable', () => {
 
   it('Successfully returns null for a key that does not exist in the hashtable ', () => {
     let ht = new Hashtable();
-    let stuff = faker.name();
-    let key = stuff;
+    let key = 'hello';
     let result = ht.get(key);
     expect(result).toBeNull();
   });
 
   it('Successfully handle a collision within the hashtable ', () => {
     let ht = new Hashtable();
-    let stuff = faker.name();
-    let key = stuff;
-    let value = stuff;
+    let key = 'hello';
+    let value = 'hello';
     ht.add(key, value);
     ht.add(key, value);
     let result = ht.get(key);
-    expect(result.length).toBe(2);
+    expect(result.length).toBe(5);
   });
 
   it('Successfully retrieve a value from a bucket within the hashtable that has a collision ', () => {
     let ht = new Hashtable();
-    let stuff = faker.name();
-    let key = stuff;
-    let value = stuff;
+    let key = 'hello';
+    let value = 'hello';
     ht.add(key, value);
     ht.add(key, value);
     let result = ht.get(key);
-    expect(result.length).toBe(2);
+    expect(result.length).toBe(5);
   });
 
   it('Successfully hash a key to an in-range value ', () => {
     let ht = new Hashtable();
-    let stuff = faker.name();
-    let key = stuff;
+    let key = 'hello';
     let hash = ht.hash(key);
     expect(hash).toBeGreaterThanOrEqual(0);
     expect(hash).toBeLessThanOrEqual(1024);

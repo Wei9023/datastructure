@@ -1,26 +1,52 @@
 'use strict';
 
-const LinkedList = require('./linked-list.js');
-
 class Hashtable {
-  constructor(size = 100){
-    this.table = new Array( size).fill(new LinkedList());
+  constructor(size=42){
+    this.buckets =  new Array(size);
+    this.size = size;
   }
 
 
-  add(key, value) {
+
+  add(key,value){
+
     let index = this.hash(key);
-    this.table[index].append(value);
+
+    if(!this.buckets[index]){
+      this.buckets[index] = [];
+    }
+
+    this.buckets[index].push([key,value]);
+    console.log(index);
+
+    return index;
   }
-  get(key) {
+
+
+  get(key){
+
+    // index of the bucket
     let index = this.hash(key);
-    let result = this.table[index].print();
-    return result.length > 0 ? result : null;
+
+    // if there is no bucket
+    if(!this.buckets[index])return null;
+
+    for(let bucket of this.buckets[index]){
+      // if key  matches
+      if(bucket [0] === key){
+        // value
+        return bucket [1];
+      }
+    }
   }
+
+
   contains(key) {
     let index = this.hash(key);
     return this.table[index].print.length > 0 ? true : false;
   }
+
+
   hash(key) {
     let charCodes = [];
     for (let i = 0; i < key.length; i++) {
