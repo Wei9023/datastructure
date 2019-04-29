@@ -1,5 +1,8 @@
 # Hashtables
 Implementation: Hash Tables
+[![Build Status](https://travis-ci.com/Wei9023/datastructure.svg?branch=hashtable)](https://travis-ci.com/Wei9023/datastructure)
+
+![hashtable](./hash.png)
 
 ## Challenge
 #### Implement a Hashtable with the following methods:
