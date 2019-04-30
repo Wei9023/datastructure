@@ -17,7 +17,7 @@ class Hashtable {
     }
 
     this.buckets[index].push([key,value]);
-    console.log(index);
+    // console.log(index);
 
     return index;
   }
@@ -43,7 +43,7 @@ class Hashtable {
 
   contains(key) {
     let index = this.hash(key);
-    return this.table[index].print.length > 0 ? true : false;
+    return this.buckets[index].length > 0 ? true : false;
   }
 
 
