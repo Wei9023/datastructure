@@ -41,9 +41,11 @@ class Hashtable {
   }
 
 
-  contains(key) {
-    let index = this.hash(key);
-    return this.buckets[index].length > 0 ? true : false;
+  contains(key){
+    if(this.map[this.hash(key)]){
+      return true;
+    }
+    return false;
   }
 
 
