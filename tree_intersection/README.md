@@ -1,5 +1,6 @@
 # Intersection of binary trees
 Find common values in 2 binary trees.
+[![Build Status](https://travis-ci.com/Wei9023/datastructure.svg?branch=tree_intersection)](https://travis-ci.com/Wei9023/datastructure)
 
 ## Challenge
 Write a function called tree_intersection that takes two binary tree parameters.
