@@ -1,48 +1,33 @@
 'use strict';
 
+let {LinkedList} = require('./linked-list.js');
+
 class Hashtable {
-  constructor(size=42){
+  constructor(size){
     this.buckets =  new Array(size);
     this.size = size;
   }
 
 
 
-  add(key,value){
-
+  add(key, value){
     let index = this.hash(key);
-
-    if(!this.buckets[index]){
-      this.buckets[index] = [];
-    }
-
-    this.buckets[index].push([key,value]);
-    // console.log(index);
-
-    return index;
+    let entry = {[key]: value};
+    this.buckets[index] = new LinkedList();
+    this.buckets[index].append(entry);
   }
 
 
   get(key){
-
-    // index of the bucket
-    let index = this.hash(key);
-
-    // if there is no bucket
-    if(!this.buckets[index])return null;
-
-    for(let bucket of this.buckets[index]){
-      // if key  matches
-      if(bucket [0] === key){
-        // value
-        return bucket [1];
-      }
+    if(this.buckets[this.hash(key)]){
+      return this.buckets[this.hash(key)].head.value[key];
     }
+    else return null;
   }
 
 
   contains(key){
-    if(this.map[this.hash(key)]){
+    if(this.buckets[this.hash(key)]){
       return true;
     }
     return false;
@@ -50,16 +35,13 @@ class Hashtable {
 
 
   hash(key) {
-    let charCodes = [];
-    for (let i = 0; i < key.length; i++) {
-      charCodes.push(key.charCodeAt(i));
-    }
-    let sum = charCodes.reduce((acc, curr) => acc + curr);
-    let product = sum * 599;
-    let remainder = product % 1024;
-    return Math.floor(remainder);
+    // if(key!== null && typeof(key)=== String){
+    return key.toString().split('').reduce((p,n) => {
+      return p + n.charCodeAt(0);
+    }, 0) * 599 % this.size;
   }
 }
+
 
 module.exports = { Hashtable };
       

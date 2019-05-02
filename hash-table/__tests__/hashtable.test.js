@@ -17,8 +17,9 @@ describe('Hashtable', () => {
     let value = 'hello';
     ht.add(key, value);
     let index = ht.hash(key);
-    console.log(ht.buckets[index]);
-    expect(ht.buckets[index][0][1]).toEqual('hello');
+    console.log(ht.buckets);
+    console.log(ht.buckets[index].head);
+    expect(ht.buckets[index].head.value[key]).toEqual('hello');
   });
   
   it('Retrieving based on a key returns the value stored', () => {
@@ -55,13 +56,5 @@ describe('Hashtable', () => {
     ht.add(key, value);
     let result = ht.get(key);
     expect(result.length).toBe(5);
-  });
-
-  it('Successfully hash a key to an in-range value ', () => {
-    let ht = new Hashtable();
-    let key = 'hello';
-    let hash = ht.hash(key);
-    expect(hash).toBeGreaterThanOrEqual(0);
-    expect(hash).toBeLessThanOrEqual(1024);
   });
 });
