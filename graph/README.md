@@ -1,4 +1,5 @@
 # Graphs
+[![Build Status](https://travis-ci.com/Wei9023/datastructure.svg?branch=graph)](https://travis-ci.com/Wei9023/datastructure)
 Implement a Graph
 
 ## Challenge
