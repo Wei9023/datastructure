@@ -28,3 +28,17 @@ Returns the total number of nodes in the graph
 
 ## API
 <!-- Description of each method publicly available in your Graph -->
+
+# Breadth-First Traversal of a Graph
+Implement a breadth-first traversal on a graph.
+[![Build Status](https://travis-ci.com/Wei9023/datastructure.svg?branch=graph-traversal)](https://travis-ci.com/Wei9023/datastructure)
+
+
+## Challenge
+Extend your graph object with a breadth-first traversal method that accepts a starting node. Without utilizing any of the built-in methods available to your language, return a collection of nodes in the order they were visited. Display the collection.
+
+## Approach & Efficiency
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+
+## Solution
+![](./assets/graph-bsf.jpeg)

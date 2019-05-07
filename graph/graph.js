@@ -1,5 +1,7 @@
 'use strit';
 
+const {Queue} = require('./queue.js');
+
 class Vertex {
   constructor(value) {
     this.value = value;
@@ -54,6 +56,72 @@ class Graph {
     for(let [key, value] of this.adjacencyList){
       console.log(key,value);
     }
+  }
+
+  // function to performs BFS 
+  bfs(startingNode) { 
+  //     // create a visited array 
+  //     let visited = []; 
+  //     let vertexArr = [];
+  //     for (let i = 0; i < this._size; i++) {
+  //       visited[i] = false; 
+  //     }
+    
+    //     // Create an object for queue 
+    //     let q = new Queue(); 
+  
+    //     // add the starting node to the queue 
+    //     visited[startingNode] = true; 
+    //     vertexArr.push(startingNode.value);
+  
+    //     q.enqueue(startingNode); 
+    //     console.log(q.front); 
+    //     console.log(q.peek()); 
+    //     // loop until queue is element 
+    //     while (q.front) { 
+    //       console.log(1);      // get the element from the queue 
+    //       let getQueueElement = q.dequeue(); 
+  
+    //       // passing the current vertex to callback funtion 
+    //       console.log(getQueueElement); 
+    //       //   vertexArr.push(getQueueElement);
+    //       // get the adjacent list for current vertex 
+    //       let get_List = this.getNeighbors(getQueueElement); 
+    //       console.log(get_List);
+    //       // loop through the list and add the element to the 
+    //       // queue if it is not processed yet 
+    //       for (let j in get_List) { 
+    //         let neigh = get_List[j]; 
+    //         console.log(neigh);
+    //         if (!visited[neigh]) { 
+    //           console.log(222);
+    //           visited[neigh] = true;
+    //           vertexArr.push(getQueueElement.value);
+    //           console.log(vertexArr);
+
+    //           q.enqueue(neigh); 
+    //         } 
+    //       } 
+    //     }
+    //     return vertexArr; 
+    //   }
+
+
+    let res = [];
+    let q = new Queue();
+    q.enqueue(startingNode);
+    res.push(startingNode.value);
+    while(q.front){
+      let front = q.dequeue();
+      let neighbors = this.getNeighbors(front);
+      neighbors.forEach(item => {
+        if(!res.includes(item.vertex.value)){
+          res.push(item.vertex.value);
+          q.enqueue(item.vertex);
+        }
+      });
+    }
+    return res;
   }
 }
 
