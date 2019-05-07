@@ -68,9 +68,9 @@ describe( 'Graph', () =>{
 
   it('The proper size is returned, representing the number of nodes in the graph', () =>{
     let gf = new Graph;
-    let a = gf.addvertex('Washington');
-    let b = gf.addvertex('Oregon');
-    let c = gf.addvertex('Canifornia');
+    gf.addvertex('Washington');
+    gf.addvertex('Oregon');
+    gf.addvertex('Canifornia');
 
     expect(gf._size).toEqual(3);
   });
@@ -86,5 +86,37 @@ describe( 'Graph', () =>{
   it('An empty graph properly returns null', () =>{
     let gf = new Graph();
     expect(gf.print()).not.toBeDefined();
+  });
+
+  it('can bread first traversal', () =>{
+    let gf = new Graph;
+    let a = gf.addvertex('Washington');
+    let b = gf.addvertex('Oregon');
+    let c = gf.addvertex('Canifornia');
+    gf.addUndirectedEdge(a,b,10);
+    gf.addUndirectedEdge(b,c,100);
+    gf.addUndirectedEdge(a,c,9);
+
+    expect(gf.bfs(a)).toEqual(['Washington','Oregon','Canifornia']);
+  });
+
+  it('can bread first traversal a one node graph', () =>{
+    let gf = new Graph;
+    let a = gf.addvertex('Washington');
+
+    expect(gf.bfs(a)).toEqual(['Washington']);
+  });
+
+  it('can bread first traversal from ', () =>{
+    let gf = new Graph;
+    let a = gf.addvertex('Washington');
+    let b = gf.addvertex('Oregon');
+    let c = gf.addvertex('Canifornia');
+    let d = gf.addvertex('New york');
+    gf.addUndirectedEdge(a,b,10);
+    gf.addUndirectedEdge(b,c,100);
+    gf.addUndirectedEdge(a,c,9);
+    gf.addUndirectedEdge(a,d,5);
+    expect(gf.bfs(d)).toEqual(['New york','Washington','Oregon','Canifornia']);
   });
 });
