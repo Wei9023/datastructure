@@ -31,6 +31,7 @@ Returns the total number of nodes in the graph
 
 # Breadth-First Traversal of a Graph
 Implement a breadth-first traversal on a graph.
+[![Build Status](https://travis-ci.com/Wei9023/datastructure.svg?branch=graph-traversal)](https://travis-ci.com/Wei9023/datastructure)
 
 
 ## Challenge
