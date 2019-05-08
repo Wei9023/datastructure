@@ -17,8 +17,8 @@ describe('Hashtable', () => {
     let value = 'hello';
     ht.add(key, value);
     let index = ht.hash(key);
-    console.log(ht.buckets);
-    console.log(ht.buckets[index].head);
+    // console.log(ht.buckets);
+    // console.log(ht.buckets[index].head);
     expect(ht.buckets[index].head.value[key]).toEqual('hello');
   });
   
