@@ -137,6 +137,27 @@ class Graph {
     }
     return res;
   }
+
+  depthFirst(vertex,arr=[]){
+    arr.push(vertex.value);
+    // console.log(arr);
+    let neighbors = this.getNeighbors(vertex);
+    // console.log(neighbors);
+    if(neighbors){
+      neighbors.forEach(item =>{
+        // console.log(item);
+        if(!arr.includes(item)){
+          arr.push(item.vertex.value);
+          //   console.log(arr);
+          if(this.getNeighbors(item.vertex) && !arr.includes(item.vertex.value)){
+            // console.log(item);
+            this.depthFirst(item,arr);
+          }
+        }
+      });
+    }
+    return arr;
+  }
 }
 
 module.exports = {Graph};

@@ -54,4 +54,4 @@ Create a function that accepts an adjacency list as a graph, and conducts a dept
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 
 ## Solution
-<!-- Embedded whiteboard image -->
+![](./assets/depth.JPG)
