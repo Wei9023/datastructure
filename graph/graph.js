@@ -39,8 +39,22 @@ class Graph {
   }
 
   getNeighbors(vertex){
-    return [...this.adjacencyList.get(vertex)];
+    // return [...this.adjacencyList.get(vertex)];
+    let neighbors = [];
+    let values = this.adjacencyList.get(vertex);
+    // console.log(values);
+    for(let value of values){
+      // console.log(value);
+      neighbors.push(value);
+    //   neighbors.forEach(item=>{
+    //       console.log(item.vertex.value);
+    //   });
+    }
+    //   return [...this.adjacencyList.keys();]
+    // console.log(neighbors);
+    return neighbors;
   }
+  
 
   getAllVertices(){
     let allVert = [];
