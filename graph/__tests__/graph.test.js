@@ -119,4 +119,33 @@ describe( 'Graph', () =>{
     gf.addUndirectedEdge(a,d,5);
     expect(gf.bfs(d)).toEqual(['New york','Washington','Oregon','Canifornia']);
   });
+
+  it('can depth first traversal', () =>{
+    let gf = new Graph;
+    let a = gf.addvertex('Washington');
+    let b = gf.addvertex('Oregon');
+    let c = gf.addvertex('Canifornia');
+    // let d = gf.addvertex('Canifornia');
+    gf.addUndirectedEdge(a,b,10);
+    gf.addUndirectedEdge(b,c,100);
+    gf.addUndirectedEdge(a,c,9);
+
+    expect(gf.depthFirst(a)).toEqual(['Washington','Oregon','Canifornia']);
+  });
+
+  it('can depth first traversal if the graph just has one node', () =>{
+    let gf = new Graph;
+    let a = gf.addvertex('Washington');
+
+    expect(gf.depthFirst(a)).toEqual(['Washington']);
+  });
+
+  it('can just return the root if the graph has no edge', () =>{
+    let gf = new Graph;
+    let a = gf.addvertex('Washington');
+    let b = gf.addvertex('Oregon');
+    let c = gf.addvertex('Canifornia');
+
+    expect(gf.depthFirst(a)).toEqual(['Washington']);
+  });
 });
